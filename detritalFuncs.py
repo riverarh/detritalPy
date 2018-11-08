@@ -106,10 +106,10 @@ def loadDataExcel(dataToPlot, mainSheet = 'Samples', dataSheet = 'ZrUPb', ID_col
         obj2.append(main_byid_df)
         obj3.append(samples_df)
         obj4.append(analyses_df)
-    main_df = pd.concat(obj1, sort=False)
-    main_byid_df = pd.concat(obj2, sort=False)
-    samples_df = pd.concat(obj3, sort=False)
-    analyses_df = pd.concat(obj4, sort=False)
+    main_df = pd.concat(obj1) #, sort=False)
+    main_byid_df = pd.concat(obj2) #, sort=False)
+    samples_df = pd.concat(obj3) #, sort=False)
+    analyses_df = pd.concat(obj4) #, sort=False)
     
     return main_df, main_byid_df, samples_df, analyses_df
 
