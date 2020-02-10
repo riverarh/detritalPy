@@ -264,7 +264,7 @@ def sskernel(x, tin=None, W=None, nbs=1e3):
         W = W[0:k]
 
     # estimate confidence intervals by bootstrapping
-    nbs = np.asarray(nbs)
+    nbs = np.asarray(nbs).astype('int')
     yb = np.zeros((nbs, len(tin)))
     for i in range(nbs):
         idx = np.random.randint(0, len(x_ab)-1, len(x_ab))
@@ -549,8 +549,8 @@ def fftkernel(x, w):
     # forward padded transform
     L = x.size
     Lmax = L + 3 * w
-    n = 2 ** np.ceil(np.log2(Lmax))
-    X = np.fft.fft(x, n.astype(np.int))
+    n = int(2 ** np.ceil(np.log2(Lmax)))
+    X = np.fft.fft(x, n)
 
     # generate kernel domain
     f = np.linspace(0, n-1, n) / n
